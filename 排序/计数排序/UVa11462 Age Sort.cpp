@@ -17,25 +17,14 @@
 using namespace std;
 
 #define SCi(n) scanf("%d", &n)
-#define SC2i(n,m) scanf("%d%d", &n, &m)
-#define SC3i(n,m,t) scanf("%d%d%d", &n, &m, &t)
+#define SC2i(n) scanf("%d", &n)
+#define SC3i(n) scanf("%d", &n)
 #define SCf(n) scanf("%f", &n)
-#define SC2f(n,m) scanf("%f%f", &n, &m)
-#define SC3f(n,m,t) scanf("%f%f%f", &n, &m, &t)
+#define SC2f(n) scanf("%f", &n)
+#define SC3f(n) scanf("%f", &n)
 #define SCd(n) scanf("%lf", &n)
-#define SC2d(n,m) scanf("%lf%lf", &n, &m)
-#define SC3d(n,m,t) scanf("%lf%lf%lf", &n, &m, &t)
-#define SCs(s) scanf("%s", s)
-
-typedef vector<int> vi;
-typedef vector<vi> vvi;
-typedef pair<int,int> ii;
-#define sz(a) int((a).size())
-#define pb push_back
-#define all(c) (c).begin(),(c).end()
-#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++)
-#define present(c,x) ((c).find(x) != (c).end())
-#define cpresent(c,x) (find(all(c),x) != (c).end())
+#define SC2d(n) scanf("%lf", &n)
+#define SC3d(n) scanf("%lf", &n)
 
 #define sc(n) scanf("%d", &n)
 #define sc2(n,m) scanf("%d%d", &n,&m)
@@ -54,10 +43,29 @@ const double PI = acos(-1.0);
 
 typedef long long ll;
 typedef long long LL;
-typedef long long int64;	// %lld
+typedef long long int64;  // %lld
+
+const int MAX_N = 100;  // 年龄范围1~100
+int n, x, c[MAX_N + 1];
 
 int main()
 {
   freopen("in.txt", "r", stdin);
+  while (SCi(n) == 1 && n) {
+    mset0(c);
+    for (int i = 0; i < n; i++) {
+      SCi(x);
+      c[x]++;
+    }
+    bool first = true;
+    for (int i = 1; i <= MAX_N; i++) {
+      for (int j = 0; j < c[i]; j++) {
+        if (!first) printf(" ");
+        first = false;
+        printf("%d", i);
+      }
+    }
+    printf("\n");
+  }
   return 0;
 }
